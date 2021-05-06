@@ -102,7 +102,7 @@ server <- function(input, output, session) {
         formula_highlight <- as.formula(sprintf("~ nuance %%in%% '%s'", nuance()))
         ft_tooltips$ft <- lapply(ft_tooltips$ft, function(ft, f){
             ft <- color(ft, i = f, color = "yellow")
-            as.character(flextable::htmltools_value(ft))
+            as.character(flextable::htmltools_value(ft, ft.shadow = FALSE))
         }, f = formula_highlight)
         dat$tooltip <- ft_tooltips$ft[match( dat$secteur, ft_tooltips$secteur)]
         
